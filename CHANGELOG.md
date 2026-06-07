@@ -19,6 +19,8 @@ The version source of truth is `src-tauri/tauri.conf.json`.
   only once at startup.
 - Releases also ship a versionless `Switchboard.dmg`, making
   `releases/latest/download/Switchboard.dmg` a permanent install link.
+- Cmd+click a URL in a terminal to open it in the browser (iTerm-style);
+  plain clicks still select/focus.
 - Crash reporting via Sentry for all builds: Rust panics and forwarded
   webview errors, scrubbed to error type/message/stack/release/OS — no
   breadcrumbs, no PII, no hostnames; terminal content never leaves the app.
