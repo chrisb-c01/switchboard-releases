@@ -17,6 +17,8 @@ The version source of truth is `src-tauri/tauri.conf.json`.
   a manual "Check for updates" with an explicit up-to-date / failed answer.
 - The updater now re-checks every 4 hours while the app runs, instead of
   only once at startup.
+- Releases also ship a versionless `Switchboard.dmg`, making
+  `releases/latest/download/Switchboard.dmg` a permanent install link.
 - Crash reporting via Sentry for all builds: Rust panics and forwarded
   webview errors, scrubbed to error type/message/stack/release/OS — no
   breadcrumbs, no PII, no hostnames; terminal content never leaves the app.
