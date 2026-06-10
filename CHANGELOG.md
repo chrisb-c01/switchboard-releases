@@ -8,6 +8,15 @@ The version source of truth is `src-tauri/tauri.conf.json`.
 
 ## [Unreleased]
 
+## [1.0.0-beta.10] - 2026-06-10
+
+### Changed
+
+- `Cmd+W` closes the focused session instead of the whole window. The
+  shortcut is remappable in Preferences like the others.
+- Closing a session no longer asks for confirmation — the shell and
+  anything running in it terminate immediately.
+
 ## [1.0.0-beta.9] - 2026-06-10
 
 ### Changed
@@ -258,6 +267,7 @@ Initial release.
   with a direct `proc_pidinfo(PROC_PIDVNODEPATHINFO)` FFI call, so session
   cwds refresh correctly and restore no longer reverts to the spawn default.
 
+[1.0.0-beta.10]: https://github.com/chrisb-c01/switchboard-releases/releases/tag/v1.0.0-beta.10
 [1.0.0-beta.9]: https://github.com/chrisb-c01/switchboard-releases/releases/tag/v1.0.0-beta.9
 [1.0.0-beta.8]: https://github.com/chrisb-c01/switchboard-releases/releases/tag/v1.0.0-beta.8
 [1.0.0-beta.7]: https://github.com/chrisb-c01/switchboard-releases/releases/tag/v1.0.0-beta.7

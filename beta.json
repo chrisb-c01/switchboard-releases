@@ -1,11 +1,11 @@
 {
-  "version": "1.0.0-beta.9",
-  "notes": "### Changed\n\n- The sidebar's \"New group\" and \"New folder\" buttons are replaced by a\n  single \"Add\" button that opens a small menu to choose between the two.\n- Folder collapse/expand is now a clear right/down chevron with a larger\n  click target instead of the tiny disclosure glyph.\n- \"+ Session\" is renamed to \"Add Session\" — button labels no longer use\n  a `+` prefix.\n\n### Fixed\n\n- Clicking a session while another app has focus now focuses that session\n  in one click: macOS swallowed the click that activated the window, so\n  the pane underneath never saw it (the window now accepts the first\n  mouse event, like iTerm).\n- Dragging files from Finder onto a session works — the feature shipped\n  in beta.8 but its drop events never reached the app (they target the\n  window, not the webview, and carry logical coordinates mislabeled as\n  physical).",
-  "pub_date": "2026-06-10T12:33:02.927Z",
+  "version": "1.0.0-beta.10",
+  "notes": "### Changed\n\n- `Cmd+W` closes the focused session instead of the whole window. The\n  shortcut is remappable in Preferences like the others.\n- Closing a session no longer asks for confirmation — the shell and\n  anything running in it terminate immediately.",
+  "pub_date": "2026-06-10T16:28:33.766Z",
   "platforms": {
     "darwin-aarch64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVRTUU3Yld3ZUIzSjJjK00vVVpNUnJxc1FIQ0xBa3Z2OXJlY2N1N2tuc0JYdnkvcllEY2JjK2JsajNUVkRPNUxNdkF0S3F6Tkk0UlBhajlmS0JrcHk1TmpiaFc5WCtpM2d3PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgxMDk0NzgyCWZpbGU6U3dpdGNoYm9hcmQuYXBwLnRhci5negpUVWhlZU9waUVhWUhPTjFGMHp3b0lpYlludEJpVjVzSDFKZ3V4cjFteDdPU2x4Z1N4WFloWkNpZzM4SlBGK3pzMG0rK0xzaldjQ3J1dlNFcGNUaVdEUT09Cg==",
-      "url": "https://github.com/chrisb-c01/switchboard-releases/releases/download/v1.0.0-beta.9/Switchboard.app.tar.gz"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVRTUU3Yld3ZUIzSjlhVWcwcWRSc1ZRQjlqUDlpL1FVTUt0a043UlVSRDk3ampLY0o0am5memJNL0I1YWd2VExlbkdoNndoVnVBejlaTGNSM1RIS3d0U29lT005OFI0T3dnPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgxMTA4OTEzCWZpbGU6U3dpdGNoYm9hcmQuYXBwLnRhci5negpONE8zZndRY0ZDLy9MS3BQMktpZVpObDl3SmI2TVRJWm9rQW1CcUZ5MkM5UnhGTEZOcW51cWdZTlhZZEVyc0x3bVYwMDYzY1c2VWMrR2pUUFdrZEdBUT09Cg==",
+      "url": "https://github.com/chrisb-c01/switchboard-releases/releases/download/v1.0.0-beta.10/Switchboard.app.tar.gz"
     }
   }
 }
