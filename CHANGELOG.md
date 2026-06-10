@@ -29,7 +29,18 @@ The version source of truth is `src-tauri/tauri.conf.json`.
 - Seamless window: hidden title bar with overlay traffic lights; drag via
   the sidebar top strip or the group header.
 - Shift+Enter inserts a newline in Claude prompts instead of submitting.
-- Groups sort alphabetically.
+- Sidebar folders: organize groups into collapsible folders, mixed freely
+  with loose groups. Collapsing is purely visual (sessions keep running; the
+  collapsed header shows the worst status across its groups); deleting a
+  folder just moves its groups back out in place.
+- Drag to reorder groups and folders in the sidebar. Order is fully manual
+  now — the old alphabetical auto-sort is gone, and renaming a group keeps
+  its position. `Cmd+Option+1..9` and `Cmd+.`/`,` follow the visible order.
+- Resizable sidebar: drag its right edge (double-click the edge to reset);
+  the width persists across launches.
+- `Cmd+F` finds text in the focused terminal: find-as-you-type with all
+  matches highlighted, Enter/Shift+Enter to cycle, Esc to return to the
+  terminal. Remappable in Preferences like the other shortcuts.
 
 ### Changed
 
@@ -47,6 +58,8 @@ The version source of truth is `src-tauri/tauri.conf.json`.
 
 ### Fixed
 
+- Long group names truncate with an ellipsis instead of overflowing the
+  sidebar; the full name shows on hover.
 - Resume: claude only persists a conversation after its first prompt —
   never-prompted sessions now restart a fresh claude instead of erroring
   "No conversation found"; SessionStart records the session id at launch;
