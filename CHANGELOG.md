@@ -8,27 +8,32 @@ The version source of truth is `src-tauri/tauri.conf.json`.
 
 ## [Unreleased]
 
+## [1.0.0-beta.9] - 2026-06-10
+
+### Changed
+
+- The sidebar's "New group" and "New folder" buttons are replaced by a
+  single "Add" button that opens a small menu to choose between the two.
+- Folder collapse/expand is now a clear right/down chevron with a larger
+  click target instead of the tiny disclosure glyph.
+- "+ Session" is renamed to "Add Session" — button labels no longer use
+  a `+` prefix.
+
+### Fixed
+
+- Clicking a session while another app has focus now focuses that session
+  in one click: macOS swallowed the click that activated the window, so
+  the pane underneath never saw it (the window now accepts the first
+  mouse event, like iTerm).
+- Dragging files from Finder onto a session works — the feature shipped
+  in beta.8 but its drop events never reached the app (they target the
+  window, not the webview, and carry logical coordinates mislabeled as
+  physical).
+
+## [1.0.0-beta.8] - 2026-06-10
+
 ### Added
 
-- Release channels: opt into beta versions via Preferences → Updates. The
-  beta channel also receives every production release; production installs
-  never see betas. Beta builds report crashes under the `beta` environment.
-- Updates section in Preferences: current version, beta-channel toggle, and
-  a manual "Check for updates" with an explicit up-to-date / failed answer.
-- The updater now re-checks every 4 hours while the app runs, instead of
-  only once at startup.
-- Releases also ship a versionless `Switchboard.dmg`, making
-  `releases/latest/download/Switchboard.dmg` a permanent install link.
-- Cmd+click a URL in a terminal to open it in the browser (iTerm-style);
-  plain clicks still select/focus.
-- Crash reporting via Sentry for all builds: Rust panics and forwarded
-  webview errors, scrubbed to error type/message/stack/release/OS — no
-  breadcrumbs, no PII, no hostnames; terminal content never leaves the app.
-  Builds are separated by environment (production / dev-for-testers /
-  development) and every event carries `switchboard@<version>+<git sha>`.
-- Seamless window: hidden title bar with overlay traffic lights; drag via
-  the sidebar top strip or the group header.
-- Shift+Enter inserts a newline in Claude prompts instead of submitting.
 - Sidebar folders: organize groups into collapsible folders, mixed freely
   with loose groups. Collapsing is purely visual (sessions keep running; the
   collapsed header shows the worst status across its groups); deleting a
@@ -41,6 +46,78 @@ The version source of truth is `src-tauri/tauri.conf.json`.
 - `Cmd+F` finds text in the focused terminal: find-as-you-type with all
   matches highlighted, Enter/Shift+Enter to cycle, Esc to return to the
   terminal. Remappable in Preferences like the other shortcuts.
+- Drag files from Finder onto a pane to type their shell-quoted paths into
+  that session at the cursor (no auto-submit); the pane under the cursor
+  highlights during the drag and takes focus on drop.
+
+### Fixed
+
+- Clicking a pane while Switchboard was in the background reactivated the
+  window but left keystrokes going to the previously-focused terminal; the
+  clicked pane now takes focus once the window is active.
+
+## [1.0.0-beta.7] - 2026-06-07
+
+### Added
+
+- Cmd+click a URL in a terminal to open it in the browser (iTerm-style);
+  plain clicks still select/focus.
+
+## [1.0.0-beta.6] - 2026-06-07
+
+### Fixed
+
+- Typing `exit` (or any shell exit) left a dead pane behind a broken "shell
+  exited" overlay. The session now closes and drops its pane, like a
+  terminal tab; close/restart/quit are still distinguished from a real
+  exit, so a restart never auto-closes the session it just respawned.
+
+## [1.0.0-beta.5] - 2026-06-07
+
+### Fixed
+
+- Window dragging from the seamless title bar (sidebar strip + group
+  header) was denied by the capability ACL, so the window couldn't be
+  moved; dragging and double-click-to-zoom work again.
+
+## [1.0.0-beta.4] - 2026-06-07
+
+### Fixed
+
+- Pane titles now follow `cd`: the periodic cwd refresh never told the
+  frontend about changes, so the folder name in a pane title stayed stale.
+  It now updates within 5 seconds of a directory change.
+
+## [1.0.0-beta.3] - 2026-06-07
+
+### Added
+
+- Releases also ship a versionless `Switchboard.dmg`, making
+  `releases/latest/download/Switchboard.dmg` a permanent install link.
+
+## [1.0.0-beta.2] - 2026-06-07
+
+No user-facing changes (release-process documentation only).
+
+## [1.0.0-beta.1] - 2026-06-07
+
+### Added
+
+- Release channels: opt into beta versions via Preferences → Updates. The
+  beta channel also receives every production release; production installs
+  never see betas. Beta builds report crashes under the `beta` environment.
+- Updates section in Preferences: current version, beta-channel toggle, and
+  a manual "Check for updates" with an explicit up-to-date / failed answer.
+- The updater now re-checks every 4 hours while the app runs, instead of
+  only once at startup.
+- Crash reporting via Sentry for all builds: Rust panics and forwarded
+  webview errors, scrubbed to error type/message/stack/release/OS — no
+  breadcrumbs, no PII, no hostnames; terminal content never leaves the app.
+  Builds are separated by environment (production / dev-for-testers /
+  development) and every event carries `switchboard@<version>+<git sha>`.
+- Seamless window: hidden title bar with overlay traffic lights; drag via
+  the sidebar top strip or the group header.
+- Shift+Enter inserts a newline in Claude prompts instead of submitting.
 
 ### Changed
 
@@ -181,6 +258,15 @@ Initial release.
   with a direct `proc_pidinfo(PROC_PIDVNODEPATHINFO)` FFI call, so session
   cwds refresh correctly and restore no longer reverts to the spawn default.
 
+[1.0.0-beta.9]: https://github.com/chrisb-c01/switchboard-releases/releases/tag/v1.0.0-beta.9
+[1.0.0-beta.8]: https://github.com/chrisb-c01/switchboard-releases/releases/tag/v1.0.0-beta.8
+[1.0.0-beta.7]: https://github.com/chrisb-c01/switchboard-releases/releases/tag/v1.0.0-beta.7
+[1.0.0-beta.6]: https://github.com/chrisb-c01/switchboard-releases/releases/tag/v1.0.0-beta.6
+[1.0.0-beta.5]: https://github.com/chrisb-c01/switchboard-releases/releases/tag/v1.0.0-beta.5
+[1.0.0-beta.4]: https://github.com/chrisb-c01/switchboard-releases/releases/tag/v1.0.0-beta.4
+[1.0.0-beta.3]: https://github.com/chrisb-c01/switchboard-releases/releases/tag/v1.0.0-beta.3
+[1.0.0-beta.2]: https://github.com/chrisb-c01/switchboard-releases/releases/tag/v1.0.0-beta.2
+[1.0.0-beta.1]: https://github.com/chrisb-c01/switchboard-releases/releases/tag/v1.0.0-beta.1
 [0.3.0]: https://github.com/chrisb-c01/switchboard-releases/releases/tag/v0.3.0
 [0.2.0]: https://github.com/chrisb-c01/switchboard-releases/releases/tag/v0.2.0
 [0.1.0]: https://github.com/chrisb-c01/switchboard-releases/releases/tag/v0.1.0
