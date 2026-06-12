@@ -8,6 +8,16 @@ The version source of truth is `src-tauri/tauri.conf.json`.
 
 ## [Unreleased]
 
+## [1.0.0-beta.11] - 2026-06-12
+
+### Changed
+
+- New session (`Cmd+N`) focuses the freshly created pane, so typing lands
+  in it immediately.
+- Closing the focused session (`Cmd+W` or the shell exiting) moves focus to
+  the next session in the group — or the previous one when the last session
+  was closed — instead of leaving the keyboard pointed at a dead pane.
+
 ## [1.0.0-beta.10] - 2026-06-10
 
 ### Changed
@@ -267,6 +277,7 @@ Initial release.
   with a direct `proc_pidinfo(PROC_PIDVNODEPATHINFO)` FFI call, so session
   cwds refresh correctly and restore no longer reverts to the spawn default.
 
+[1.0.0-beta.11]: https://github.com/chrisb-c01/switchboard-releases/releases/tag/v1.0.0-beta.11
 [1.0.0-beta.10]: https://github.com/chrisb-c01/switchboard-releases/releases/tag/v1.0.0-beta.10
 [1.0.0-beta.9]: https://github.com/chrisb-c01/switchboard-releases/releases/tag/v1.0.0-beta.9
 [1.0.0-beta.8]: https://github.com/chrisb-c01/switchboard-releases/releases/tag/v1.0.0-beta.8

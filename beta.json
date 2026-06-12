@@ -1,11 +1,11 @@
 {
-  "version": "1.0.0-beta.10",
-  "notes": "### Changed\n\n- `Cmd+W` closes the focused session instead of the whole window. The\n  shortcut is remappable in Preferences like the others.\n- Closing a session no longer asks for confirmation — the shell and\n  anything running in it terminate immediately.",
-  "pub_date": "2026-06-10T16:28:33.766Z",
+  "version": "1.0.0-beta.11",
+  "notes": "### Changed\n\n- New session (`Cmd+N`) focuses the freshly created pane, so typing lands\n  in it immediately.\n- Closing the focused session (`Cmd+W` or the shell exiting) moves focus to\n  the next session in the group — or the previous one when the last session\n  was closed — instead of leaving the keyboard pointed at a dead pane.",
+  "pub_date": "2026-06-12T12:21:40.885Z",
   "platforms": {
     "darwin-aarch64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVRTUU3Yld3ZUIzSjlhVWcwcWRSc1ZRQjlqUDlpL1FVTUt0a043UlVSRDk3ampLY0o0am5memJNL0I1YWd2VExlbkdoNndoVnVBejlaTGNSM1RIS3d0U29lT005OFI0T3dnPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgxMTA4OTEzCWZpbGU6U3dpdGNoYm9hcmQuYXBwLnRhci5negpONE8zZndRY0ZDLy9MS3BQMktpZVpObDl3SmI2TVRJWm9rQW1CcUZ5MkM5UnhGTEZOcW51cWdZTlhZZEVyc0x3bVYwMDYzY1c2VWMrR2pUUFdrZEdBUT09Cg==",
-      "url": "https://github.com/chrisb-c01/switchboard-releases/releases/download/v1.0.0-beta.10/Switchboard.app.tar.gz"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVRTUU3Yld3ZUIzSno5eG5kMnpmaTJ0VkVXZXdHZXpINWk3SkNJRTlLS09Qb0xCenpQcVRRYlQrR3F2KzFJSTA3cEJhWU9Sa0VjS3B1dUZPcWllUU9TT2JnWDdPVW5xK2d3PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgxMjY2OTAwCWZpbGU6U3dpdGNoYm9hcmQuYXBwLnRhci5negpxNkNmT291aVU4WVR4TDg5YXJvemdDbi92cTdzYU5HOUFwQ203ajUvblBENXZRZHhKRlVuTTFjNlMySlpUVTR6T2Z1ZlZDcldKZ1FId0g5UE9oaDBCdz09Cg==",
+      "url": "https://github.com/chrisb-c01/switchboard-releases/releases/download/v1.0.0-beta.11/Switchboard.app.tar.gz"
     }
   }
 }
